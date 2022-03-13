@@ -1,0 +1,42 @@
+$max-width: 768px;
+
+$font-basic: 16px;
+$small-1: 14.4px;
+$heading-2: 26px;
+$heading-3: 20px;
+@mixin fontSizeSP($size: DarkGray) {
+  font-size: #{calc(100 * $size * 1.5 / $max-width)}vw;
+}
+body {
+  font-size: #{$font-basic};
+}
+.fs--font-basic {
+  font-size: #{$font-basic};
+}
+.fs--small-1 {
+  font-size: #{$small-1};
+}
+.fs--heading-2 {
+  font-size: #{$heading-2};
+}
+.fs--heading-3 {
+  font-size: #{$heading-3};
+}
+
+@media screen and (max-width: $max-width) {
+  body {
+    @include fontSizeSP($font-basic);
+  }
+  .fs--font-basic {
+    @include fontSizeSP($font-basic);
+  }
+  .fs--small-1 {
+    @include fontSizeSP($small-1);
+  }
+  .fs--heading-2 {
+    @include fontSizeSP($heading-2);
+  }
+  .fs--heading-3 {
+    @include fontSizeSP($heading-3);
+  }
+}
