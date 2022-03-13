@@ -117,6 +117,10 @@ export default {
         .get(`https://restcountries.com/v3.1/name/${this.data.CountryCode}`)
         .then((response) => {
           return response.data.filter(f=>f.name.common === this.data.Country || f.name.official.toLowerCase().includes(this.data.Country.toLowerCase()) || f.name.common.toLowerCase().includes(this.data.Slug.toLowerCase()));
+        }).catch((err)=> {
+          // eslint-disable-next-line no-console
+          console.error(err);
+          this.$modal.loading(false);
         })
 
       setTimeout(() => {
@@ -125,7 +129,6 @@ export default {
       this.fetchListCountry(this.data.Slug);
     },
     handleDataChart(data) {
-      // const getDataByCountry = data.filter(f=> f.Province === "" || f.Province === this.data.Country);
       this.chartOptions.xaxis.categories = data.map(m => m.Date);
       this.series[0].data = data.map(m => m.Confirmed);
       this.series[1].data = data.map(m => m.Recovered);

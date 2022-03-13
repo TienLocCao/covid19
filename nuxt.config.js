@@ -1,10 +1,15 @@
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
+  target: 'static',
+  mode: 'static',
+   router: {
+      base: '/covid19/'
+   },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'virus',
+    title: 'covid 19',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -19,7 +24,8 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    '@/plugins/modals/v-modal.js'
+    '@/plugins/modals/v-modal.js',
+    // { src: '@/plugins/index.js', mode: 'client' }
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -65,5 +71,5 @@ export default {
     baseApiUrl:
       process.env.BASE_API_URL ||
       'https://api.covid19api.com/',
-  },
+  }
 }
