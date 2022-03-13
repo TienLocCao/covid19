@@ -4,7 +4,7 @@ export default {
   target: 'static',
   mode: 'static',
    router: {
-      base: '/'
+      base: '/covid19/'
    },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
