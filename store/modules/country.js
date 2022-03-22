@@ -45,8 +45,7 @@ const mutations = {
       JSON.parse(s)
       );
     // eslint-disable-next-line no-return-assign
-    this.handleData.forEach((item) => {
-
+    handleData.forEach((item) => {
       const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
       this[Date] = convertTZ(item.Date, timezone);
     });
