@@ -12,11 +12,10 @@
 
 <script>
 import axios from 'axios'
+import moment from 'moment';
 import { mapGetters, mapActions } from 'vuex'
 import VueApexCharts from "vue-apexcharts";
-import Vue from "vue";
 import TableCountry from '@/components/Summary/TableCountry.vue';
-Vue.use(require("vue-moment"));
 
 export default {
   components: {
@@ -39,7 +38,7 @@ export default {
           type: "datetime",
           labels: {
             formatter(val, timestamp) {
-              return Vue.moment(timestamp).format("YYYY/MM/DD");
+              return moment(timestamp).format("YYYY/MM/DD");
             }
           },
           categories: [],
